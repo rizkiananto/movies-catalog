@@ -37,3 +37,9 @@
     transform: translateY(0px);
   }
 }
+
+.nav-logo {
+  width: 3rem;
+  height: 3rem;
+  object-fit: contain;
+}
