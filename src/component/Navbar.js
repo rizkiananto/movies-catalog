@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from '../assets/images/studio-logo.png'
 
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = ['Movie', 'Favourite'];
 
 const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -25,7 +25,7 @@ const Navbar = () => {
     };
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" sx={{backgroundColor: 'transparent'}}>
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Typography
@@ -65,7 +65,7 @@ const Navbar = () => {
                             }} >
                                 {pages.map((page) => (
                                     <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography textAlign="center">{page}</Typography>
+                                        <Typography sx={{color: 'black'}} textAlign="center">{page}</Typography>
                                     </MenuItem>
                                 ))}
                         </Menu>
@@ -82,7 +82,7 @@ const Navbar = () => {
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }} >
+                                sx={{ my: 2, color: 'black', display: 'block' }} >
                                     {page}
                             </Button>
                         ))}

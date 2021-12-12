@@ -43,3 +43,147 @@
   height: 3rem;
   object-fit: contain;
 }
+
+/* list movie */
+.list-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px 3px rgba(155, 155, 155, .3)
+}
+.list-item:hover {
+  cursor: pointer;
+}
+.list-thumbnail, .list-detail, .list-action {
+  padding: .35rem;
+}
+.list-thumbnail img {
+  height: 30px;
+  width: 25px;
+  object-fit: cover;
+}
+.list-detail {
+  width: 250px;
+  text-align: left;
+}
+.list-detail p,
+.list-detail label {
+  width: 100%;
+  white-space: nowrap;
+  text-overflow: hidden;
+  overflow: hidden;
+}
+.list-detail p {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1em;
+}
+.list-detail label {
+  margin: 0;
+  font-size: .85em;
+  color: grey;
+}
+.list-action {
+  
+}
+hr {
+  margin: 1.5rem 0;
+  border-top: 1px solid #ededed;
+}
+.movie-data {
+  display: flex;
+  flex: row;
+  align-items: center;
+  gap: 1.2rem;
+}
+.movie-data img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+}
+
+/* popup detail movie style */
+.modal-detail-movie {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 80vw;
+  background-color: white;
+  box-shadow: 3px 3px 5px 3px rgba(155, 155, 155, .3);
+  border-radius: 15px;
+}
+@media screen and (min-width: 1201px) {
+  .modal-detail-movie {
+    max-width: 45vw;
+  }
+}
+.popup {
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+}
+.popup-header {
+  position: relative;
+  min-height: 155px;
+  color: white;
+  border-radius: 15px 15px 0 0;
+}
+.popup-header > span, 
+.popup-header img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.popup-header img {
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+}
+.popup-header > span {
+  background-color: black;
+  opacity: .7;
+  z-index: 2;
+  border-radius: 15px 15px 0 0;
+}
+.popup-header .header-data {
+  position: relative;
+  padding: 1.5rem;
+  z-index: 3;
+}
+.title {
+  font-size: 2em;
+  font-weight: bold;
+  margin: .5rem 0;
+}
+.sub {
+  font-size: .9em;
+  margin: .25rem;
+  color: gainsboro;
+}
+.sub.black {
+  color: black;
+}
+.rating {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: .35rem;
+}
+.rating svg, .rating label {
+  font-size: .9em;
+  margin: 0;
+}
+.popup-body {
+  padding: 1rem;
+}
+.favourite {
+  color: red;
+  fill: red;
+}
