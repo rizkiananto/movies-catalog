@@ -1,20 +1,31 @@
-import * as React from 'react';
-import DefaultPoster from '../assets/images/no-poster.png'
+import React from 'react';
+import DefaultPoster from '../assets/images/no-poster.png';
 import IconButton from '@mui/material/IconButton';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { checkID } from '../features/favouriteSlice';
-import { add, remove } from '../features/favouriteSlice'
+import { add, removeFav } from '../features/favouriteSlice';
 
-export default function RecipeReviewCard({content, onClick, addFavorite}) {
+export default function MovieCard({content, onClick}) {
     const dispatch = useDispatch()
     const favourite = useSelector(checkID)
 
     const toggleFavourite = (e, movie) => {
-        if (e.target.closest('svg') !== null) {
-            e.target.classList.contains('favourite') ? dispatch(remove(movie)) : dispatch(add(movie))
-            e.target.classList.toggle('favourite')
+        let svgDom = e.target.closest('svg')
+        if (svgDom !== null) {
+            if (svgDom.classList.contains('favourite')) {
+                dispatch(removeFav(movie))
+                if (document.getElementById('favourite-page') !== null && e.target.closest('.card-list') !== null) {
+                    e.target.closest('.card-list').remove()
+                    if (favourite > 1) {
+                        e.target.closest('.list-item').removeChild()
+                    }
+                } 
+            } else {
+                dispatch(add(movie))
+            }
+            svgDom.classList.toggle('favourite')
         } 
     }
 

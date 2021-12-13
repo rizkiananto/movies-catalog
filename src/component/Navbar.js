@@ -26,6 +26,7 @@ const Navbar = () => {
     };
 
     const handleCloseNavMenu = (link) => {
+        setAnchorElNav(null);
         navigate(link)
     };
     
@@ -49,7 +50,8 @@ const Navbar = () => {
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit" >
+                            color="inherit" 
+                            sx={{color: 'black'}} >
                                 <MenuIcon />
                         </IconButton>
                         <Menu
