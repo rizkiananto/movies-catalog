@@ -53,7 +53,9 @@
   justify-content: center;
   height: 50px;
   border-radius: 5px;
-  box-shadow: 2px 2px 5px 3px rgba(155, 155, 155, .3)
+  box-shadow: 2px 2px 5px 3px rgba(155, 155, 155, .3);
+  /* animation-duration: 5s;
+  animation-name: slidein; */
 }
 .list-item:hover {
   cursor: pointer;
@@ -86,9 +88,6 @@
   margin: 0;
   font-size: .85em;
   color: grey;
-}
-.list-action {
-  
 }
 hr {
   margin: 1.5rem 0;
@@ -183,7 +182,19 @@ hr {
 .popup-body {
   padding: 1rem;
 }
-.favourite {
+button .favourite {
   color: red;
   fill: red;
+}
+
+/* animation */
+@keyframes slidein {
+  from {
+    margin-left: -350px;
+    opacity: 0;
+  }
+  to {
+    margin-left: 0;
+    opacity: 1
+  }
 }

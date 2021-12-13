@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom'
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -11,18 +12,24 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import Logo from '../assets/images/studio-logo.png'
 
-const pages = ['Movie', 'Favourite'];
+const pages = [ 
+    {name:'Movie', link:'/'}, 
+    {name:'Favourite', link:'/favourite'}
+];
 
 const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState(null);
+    const navigate = useNavigate()
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
     };
 
-    const handleCloseNavMenu = () => {
+    const handleCloseNavMenu = (link) => {
         setAnchorElNav(null);
+        navigate(link)
     };
+    
 
     return (
         <AppBar position="static" sx={{backgroundColor: 'transparent'}}>
@@ -43,7 +50,8 @@ const Navbar = () => {
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit" >
+                            color="inherit" 
+                            sx={{color: 'black'}} >
                                 <MenuIcon />
                         </IconButton>
                         <Menu
@@ -64,8 +72,8 @@ const Navbar = () => {
                                 display: { xs: 'block', md: 'none' },
                             }} >
                                 {pages.map((page) => (
-                                    <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                        <Typography sx={{color: 'black'}} textAlign="center">{page}</Typography>
+                                    <MenuItem key={page.name} onClick={() => handleCloseNavMenu(page.link)}>
+                                        <Typography sx={{color: 'black'}} textAlign="center">{page.name}</Typography>
                                     </MenuItem>
                                 ))}
                         </Menu>
@@ -80,10 +88,10 @@ const Navbar = () => {
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
-                                key={page}
-                                onClick={handleCloseNavMenu}
+                                key={page.name}
+                                onClick={() => handleCloseNavMenu(page.link)}
                                 sx={{ my: 2, color: 'black', display: 'block' }} >
-                                    {page}
+                                    {page.name}
                             </Button>
                         ))}
                     </Box>
